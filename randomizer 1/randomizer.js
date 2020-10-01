@@ -40,12 +40,6 @@ function draw() {
 
 }
 
-function changeBackground(){
-  background
-
-
-}
-
 function mousePressed() {
   if (dogs[0]) {
     background(255);
