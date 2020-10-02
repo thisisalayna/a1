@@ -24,7 +24,7 @@ let randomIndex = 0;
 let animating = false;
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(400, 400);
   background(220);
   textSize(32);
 
@@ -46,7 +46,10 @@ function randomizer() {
   if (dogs[0]) {
     background(255);
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name + " was born in " + dogs[randomIndex].born, 50, 50);
+    text(`${dogs[randomIndex].name}
+    born in ${dogs[randomIndex].born}`, 50, 50);
+    //text(dogs[randomIndex].name + " was born in " +
+    //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
   } else {
     background(random(255), random(255), random(255));
