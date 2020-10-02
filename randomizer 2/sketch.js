@@ -24,38 +24,39 @@ let randomIndex = 0;
 let animating = false;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 400);
   background(220);
   textSize(32);
 
   text("click to randomize", 50, 50);
 
 }
+
 function draw() {
 
-if(animating == true){
-circle(random(width), random(height), random(50, 200));
+  if (animating == true) {
+    circle(random(width), random(height), random(50, 200));
+
+  }
 
 }
 
-}
-
-function randomizer(){
+function randomizer() {
   animating = false;
   if (dogs[0]) {
-   background(255);
-   randomIndex = int(random(dogs.length));
-   text(dogs[randomIndex].name, 50, 50);
-   dogs.splice(randomIndex, 1);
+    background(255);
+    randomIndex = int(random(dogs.length));
+    text(dogs[randomIndex].name + " was born in " + dogs[randomIndex].born, 50, 50);
+    dogs.splice(randomIndex, 1);
   } else {
-   background(random(255), random(255), random(255));
-   text("that's everyone!", 50, 50);
+    background(random(255), random(255), random(255));
+    text("that's everyone!", 50, 50);
   }
 
 }
 
 function mousePressed() {
-    animating = true;
+  animating = true;
   setTimeout(randomizer, 2000);
 
 }
