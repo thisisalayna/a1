@@ -23,7 +23,7 @@ let dogs = [{
 }];
 
 let randomIndex = 0;
-
+let counter = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -32,24 +32,34 @@ function setup() {
 
   text("click to randomize", 50, 50);
 
+  setTimeout(changeBackground, 1000);
 }
 
 function draw() {
 
+}
+
+//function changeBackground() {
+//  if(counter<=5){
+  //  counter++;
+//    console.log(counter);
+  //background(random(255), random(255), random(255));}
+
+function randomizer(){
+  if (dogs[0]) {
+   background(255);
+   randomIndex = int(random(dogs.length));
+   text(dogs[randomIndex].name, 50, 50);
+   dogs.splice(randomIndex, 1);
+  } else {
+   background(random(255), random(255), random(255));
+   text("that's everyone!", 50, 50);
+  }
 
 }
 
 function mousePressed() {
-  if (dogs[0]) {
-    background(255);
-    randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name, 50, 50);
-    dogs.splice(randomIndex, 1);
-  } else {
-    background(random(255));
-    text("that's everyone!", 50, 50);
-  }
 
-
+  setTimeout(randomizer, 2000);
 
 }
