@@ -52,6 +52,7 @@ circle(random(width), random(height), random(50, 200));
   //background(random(255), random(255), random(255));}
 
 function randomizer(){
+  animating = false; 
   if (dogs[0]) {
    background(255);
    randomIndex = int(random(dogs.length));
