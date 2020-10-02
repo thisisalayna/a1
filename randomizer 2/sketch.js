@@ -23,7 +23,8 @@ let dogs = [{
 }];
 
 let randomIndex = 0;
-let counter = 0;
+//let counter = 0;
+let animating = false;
 
 function setup() {
   createCanvas(400, 400);
@@ -32,10 +33,15 @@ function setup() {
 
   text("click to randomize", 50, 50);
 
-  setTimeout(changeBackground, 1000);
+  //setTimeout(changeBackground, 1000);
 }
 
 function draw() {
+
+if(animating == true){
+circle(random(width), random(height), random(50, 200));
+
+}
 
 }
 
@@ -59,7 +65,7 @@ function randomizer(){
 }
 
 function mousePressed() {
-
+    animating = true;
   setTimeout(randomizer, 2000);
 
 }
