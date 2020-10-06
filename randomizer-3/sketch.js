@@ -1,5 +1,4 @@
 //The dogs I love
-'use strict'
 let dogs = [{
   name: "Maxie",
   born: "1991"
@@ -27,11 +26,12 @@ let randomIndex = 0;
 let animating = false;
 let dogImages = [];
 let imageCounter = 0;
+let buttonPressed,
 let button;
 
 function preload() {
   for (let i = 0; i <= 7; i++) {
-    dogImages[i] = loadImage(`images/dogs_${i}.jpg`)
+    dogImages[i] = loadImage(`images/dogs_${i}.JPG`)
 
 }
 
@@ -49,8 +49,8 @@ function setup() {
 
 
 
-  button = createButton("click to randomize");
-  button.mousePressed(buttonPressed);
+button = createButton("click to randomize");
+button.mousePressed(buttonPressed);
 
   text("click to randomize", 300, 50);
 
@@ -95,5 +95,4 @@ function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 
-}
 }
