@@ -22,20 +22,23 @@ let dogs = [{
 
 let randomIndex = 0;
 let animating = false;
-let dogs_0.JPG;
-let dogs_1.JPG;
-let dogs_2.JPG;
-let dogs_3.JPG;
-let dogs_4.JPG;
-let dogs_5.JPG;
-let dogs_6.JPG;
-let dogs_7.JPG;
+let dogImages = [];
+let imageCounter = 0;
+
+
+function preload() {
+  for (let i = 0; i <= 7; i++)
+    dogImages[i] = loadImage(`images/dogs_${i}.JPG`)
+
+}
 
 
 function setup() {
   createCanvas(400, 400);
   background(220);
   textSize(32);
+  imageMode(CENTER);
+  frameRate(12);
 
   text("click to randomize", 50, 50);
 
@@ -44,11 +47,16 @@ function setup() {
 function draw() {
 
   if (animating == true) {
-    circle(random(width), random(height), random(50, 200));
+    //clear();
+    image(dogImages[imageCounter], width / 2, height / 2);
 
   }
-
+  if (imageCounter < dogImages.length - 1) {
+    imageCounter++;
+  } else {
+  imageCounter = 0;
 }
+
 
 function randomizer() {
   animating = false;
@@ -64,7 +72,6 @@ function randomizer() {
     background(random(255), random(255), random(255));
     text("that's everyone!", 50, 50);
   }
-
 }
 
 function mousePressed() {
