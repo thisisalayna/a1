@@ -35,6 +35,8 @@ function preload() {
 
 }
 
+}
+
 
 function setup() {
   createCanvas(600, 600);
@@ -84,7 +86,7 @@ function randomizer() {
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
-  } else {
+  } else {}
     background(random(255), random(255), random(255));
     text("that's everyone!", 50, 50);
   }
