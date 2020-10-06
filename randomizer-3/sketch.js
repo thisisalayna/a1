@@ -31,7 +31,7 @@ let button;
 
 function preload() {
   for (let i = 0; i <= 7; i++) {
-    dogImages[i] = loadImage(`images/dogs_${i}.JPG`)
+    dogImages[i] = loadImage(`images/dogs_${i}.jpg`)
 
 }
 
