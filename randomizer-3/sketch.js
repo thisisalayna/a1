@@ -1,4 +1,5 @@
 //The dogs I love
+'use strict'
 let dogs = [{
   name: "Maxie",
   born: "1991"
@@ -22,7 +23,7 @@ let dogs = [{
 
 let randomIndex = 0;
 let animating = false;
-let dogImages = [];
+let dogImages = [0];
 let imageCounter = 0;
 let button;
 
