@@ -17,6 +17,8 @@ let dogs = [{
   born: "2010"
 }, {
   name: "Ricky",
+  born: "2014"
+}, {
   name: "Sebastian",
   born: "2016"
 }];
@@ -29,7 +31,7 @@ let button;
 
 function preload() {
   for (let i = 0; i <= 7; i++)
-    dogImages[i] = loadImage(`images/dogs_${i}.JPG`)
+    dogImages[i] = loadImage(`images/dogs_${i}.jpg`)
 
 }
 
@@ -93,4 +95,5 @@ function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 
+}
 }
