@@ -36,13 +36,13 @@ function preload() {
 function setup() {
   createCanvas(600, 600);
   background(220);
-  textSize(32);
+  textSize(25);
   imageMode(CENTER);
   frameRate(3);
 
   text("click to randomize", 50, 50);
-console.log(dogImages);
-console.log(imageCounter);
+  console.log(dogImages);
+  console.log(imageCounter);
 }
 
 function draw() {
@@ -55,8 +55,8 @@ function draw() {
   if (imageCounter < dogImages.length - 1) {
     imageCounter++;
   } else {
-  imageCounter = 0;
-}
+    imageCounter = 0;
+  }
 
 }
 
@@ -67,9 +67,9 @@ function randomizer() {
     clear();
 
     randomIndex = int(random(dogs.length));
-    image(random(dogImages), width / 2, height / 2);
+    image(random(dogImages), width / 2, 300);
     text(`${dogs[randomIndex].name}
-    born in ${dogs[randomIndex].born}`, width / 2 , 50);
+    born in ${dogs[randomIndex].born}`, width / 2, 50);
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
