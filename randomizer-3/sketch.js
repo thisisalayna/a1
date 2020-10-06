@@ -76,7 +76,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {s
+function mousePressed() {
   console.log("we've gotten hereeee!");
 
   animating = true;
