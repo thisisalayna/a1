@@ -34,11 +34,11 @@ function preload() {
 
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   background(220);
   textSize(32);
   imageMode(CENTER);
-  frameRate(8);
+  frameRate(2);
 
   text("click to randomize", 50, 50);
 console.log(dogImages);
