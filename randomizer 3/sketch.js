@@ -22,6 +22,15 @@ let dogs = [{
 
 let randomIndex = 0;
 let animating = false;
+let dogs_0.JPG;
+let dogs_1.JPG;
+let dogs_2.JPG;
+let dogs_3.JPG;
+let dogs_4.JPG;
+let dogs_5.JPG;
+let dogs_6.JPG;
+let dogs_7.JPG;
+
 
 function setup() {
   createCanvas(400, 400);
