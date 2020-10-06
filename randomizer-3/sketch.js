@@ -40,6 +40,8 @@ function setup() {
   fill(255);
   imageMode(CENTER);
   textAlign(CENTER);
+  textStyle(ITALIC);
+  textFont('Times');
   frameRate(3);
 
 
@@ -47,9 +49,8 @@ function setup() {
 button = createButton("click to randomize");
 button.mousePressed(buttonPressed);
 
-  text("click to randomize", 50, 50);
-  console.log(dogImages);
-  console.log(imageCounter);
+  text("click to randomize", 300, 50);
+
 }
 
 function draw() {
@@ -87,7 +88,6 @@ function randomizer() {
 }
 
 function buttonPressed() {
-  console.log("we've gotten hereeee!");
 
   animating = true;
   setTimeout(randomizer, 2000);
