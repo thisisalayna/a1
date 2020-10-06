@@ -24,7 +24,7 @@ let randomIndex = 0;
 let animating = false;
 let dogImages = [];
 let imageCounter = 0;
-
+let button;
 
 function preload() {
   for (let i = 0; i <= 7; i++)
@@ -37,8 +37,15 @@ function setup() {
   createCanvas(600, 600);
   background(220);
   textSize(25);
+  fill(255);
   imageMode(CENTER);
+  textAlign(CENTER);
   frameRate(3);
+
+
+
+button = createButton("click to randomize");
+button.mousePressed(buttonPressed);
 
   text("click to randomize", 50, 50);
   console.log(dogImages);
@@ -69,7 +76,7 @@ function randomizer() {
     randomIndex = int(random(dogs.length));
     image(random(dogImages), width / 2, 300);
     text(`${dogs[randomIndex].name}
-    born in ${dogs[randomIndex].born}`, width / 2, 50);
+    born in ${dogs[randomIndex].born}`, width / 2, 400);
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
@@ -79,7 +86,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {
+function buttonPressed() {
   console.log("we've gotten hereeee!");
 
   animating = true;
