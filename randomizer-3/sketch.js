@@ -47,8 +47,8 @@ function setup() {
 
 
 
-button = createButton("click to randomize");
-button.mousePressed(buttonPressed);
+  button = createButton("click to randomize");
+  button.mousePressed(buttonPressed);
 
   text("click to randomize", 300, 50);
 
