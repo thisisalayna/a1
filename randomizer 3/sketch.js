@@ -38,16 +38,17 @@ function setup() {
   background(220);
   textSize(32);
   imageMode(CENTER);
-  frameRate(12);
+  frameRate(8);
 
   text("click to randomize", 50, 50);
-
+console.log(dogImages);
+console.log(imageCounter);
 }
 
 function draw() {
 
   if (animating == true) {
-    //clear();
+    clear();
     image(dogImages[imageCounter], width / 2, height / 2);
 
   }
@@ -57,6 +58,7 @@ function draw() {
   imageCounter = 0;
 }
 
+}
 
 function randomizer() {
   animating = false;
@@ -75,6 +77,8 @@ function randomizer() {
 }
 
 function mousePressed() {
+  console.log("we've gotten hereeee!");
+
   animating = true;
   setTimeout(randomizer, 2000);
 
