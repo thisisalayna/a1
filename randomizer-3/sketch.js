@@ -23,7 +23,7 @@ let dogs = [{
 
 let randomIndex = 0;
 let animating = false;
-let dogImages = [0];
+let dogImages = [];
 let imageCounter = 0;
 let button;
 
