@@ -38,7 +38,7 @@ function setup() {
   background(220);
   textSize(32);
   imageMode(CENTER);
-  frameRate(3);
+  frameRate(2);
 
   text("click to randomize", 50, 50);
 console.log(dogImages);
@@ -64,12 +64,9 @@ function randomizer() {
   animating = false;
   if (dogs[0]) {
     background(255);
-    clear();
-
     randomIndex = int(random(dogs.length));
-    image(random(dogImages), width / 2, height / 2);
     text(`${dogs[randomIndex].name}
-    born in ${dogs[randomIndex].born}`, width / 2 , 50);
+    born in ${dogs[randomIndex].born}`, 50, 50);
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
@@ -79,7 +76,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {
+function mousePressed() {s
   console.log("we've gotten hereeee!");
 
   animating = true;
