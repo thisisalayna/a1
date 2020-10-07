@@ -26,7 +26,6 @@ let randomIndex = 0;
 let animating = false;
 let dogImages = [];
 let imageCounter = 0;
-let buttonPressed;
 let  button;
 
 function preload() {
