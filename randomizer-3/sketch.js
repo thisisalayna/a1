@@ -1,38 +1,45 @@
 //The dogs I love
 let dogs = [{
-  name: "Maxie",
-  born: "1991"
-}, {
-  name: "Zsa-zsa",
-  born: "1993"
-}, {
-  name: "Gabby",
-  born: "1999"
-}, {
-  name: "Alfie",
-  born: "2005"
-}, {
-  name: "Jodie",
-  born: "2010"
-}, {
-  name: "Ricky",
-  born: "2014"
-}, {
-  name: "Sebastian",
-  born: "2016"
-}];
+    name: "Maxie",
+    born: "1991"
+  },
+  {
+    name: "Zsa-zsa",
+    born: "1993"
+  },
+  {
+    name: "Gabby",
+    born: "1999"
+  },
+  {
+    name: "Alfie",
+    born: "2005"
+  },
+  {
+    name: "Jodie",
+    born: "2010"
+  },
+  {
+    name: "Ricky",
+    born: "2014"
+  },
+  {
+    name: "Sebastian",
+    born: "2016"
+  }
+];
 
 let randomIndex = 0;
 let animating = false;
 let dogImages = [];
 let imageCounter = 0;
-let  button;
+let button;
 
 function preload() {
   for (let i = 0; i <= 7; i++) {
     dogImages[i] = loadImage(`images/dogs_${i}.jpg`)
 
-}
+  }
 
 }
 
@@ -50,8 +57,8 @@ function setup() {
 
 
 
-button = createButton("click to randomize");
-button.mousePressed(buttonPressed);
+  button = createButton("click to randomize");
+  button.mousePressed(buttonPressed);
 
   text("click to randomize", 300, 50);
 
