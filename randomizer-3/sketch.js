@@ -90,7 +90,6 @@ function randomizer() {
     background(random(255), random(255), random(255));
     text("that's everyone!", 50, 50);
   }
-}
 
 function buttonPressed() {
 
