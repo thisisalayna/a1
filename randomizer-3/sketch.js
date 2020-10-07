@@ -74,6 +74,7 @@ function draw() {
 
 function randomizer() {
   animating = false;
+  console.log(dogs);
   if (dogs[0]) {
     background(255);
     clear();
@@ -85,9 +86,9 @@ function randomizer() {
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
-  } else {}
+  } else {
     background(random(255), random(255), random(255));
-    text("that's everyone!", 50, 50);
+    text("that's everyone!", 300, 50);
   }
 
 function buttonPressed() {
