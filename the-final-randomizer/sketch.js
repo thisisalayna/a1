@@ -59,7 +59,11 @@ function setup() {
   frameRate(10);
 
   for(i in transition){
-  transition[i].resize(600,0);}
+  transition[i].resize(600,0);
+}
+  for(i in dogImages){
+    dogImages[i].resize(300,0);
+  }
 
 
 
@@ -93,12 +97,13 @@ function randomizer() {
     clear();
 
     randomIndex = int(random(dogs.length));
-    image(random(dogImages), width / 2, 300);
+    image(dogImages[randomIndex], width / 2, 300);
     text(`${dogs[randomIndex].name}
     born in ${dogs[randomIndex].born}`, width / 2, 400);
     //text(dogs[randomIndex].name + " was born in " +
     //dogs[randomIndex].born, 50, 50);
     dogs.splice(randomIndex, 1);
+    dogImages.splice(randomIndex,1);
   } else {
     background(random(255), random(255), random(255));
     text("that's everyone!", 300, 50);
