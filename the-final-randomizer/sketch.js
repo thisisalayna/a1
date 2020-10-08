@@ -73,6 +73,7 @@ function setup() {
   text("click to randomize", 300, 50);
 
 }
+
 function draw() {
 
   if (animating == true) {
