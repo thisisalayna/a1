@@ -32,6 +32,7 @@ let dogs = [{
 let randomIndex = 0;
 let animating = false;
 let dogImages = [];
+let transition =[];
 let imageCounter = 0;
 let button;
 
@@ -40,7 +41,10 @@ function preload() {
     dogImages[i] = loadImage(`images/dogs_${i}.jpg`)
 
   }
-
+  for (let i = 0; i <= 21; i++) {
+    transition[i] = loadImage(`transition/zero_${i}.jpg`)
+  }
+  transition.sort();
 }
 
 function setup() {
@@ -52,7 +56,10 @@ function setup() {
   textAlign(CENTER);
   textStyle(ITALIC);
   textFont('Times');
-  frameRate(3);
+  frameRate(10);
+
+  for(i in transition){
+  transition[i].resize(600,0);}
 
 
 
@@ -67,10 +74,10 @@ function draw() {
 
   if (animating == true) {
     clear();
-    image(dogImages[imageCounter], width / 2, height / 2);
+    image(transition[imageCounter], width / 2, height / 2);
 
   }
-  if (imageCounter < dogImages.length - 1) {
+  if (imageCounter < transition.length - 1) {
     imageCounter++;
   } else {
     imageCounter = 0;
