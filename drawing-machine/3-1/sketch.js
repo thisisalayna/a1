@@ -1,7 +1,7 @@
 let array = [];
 
 function setup() {
-  createCanvas(700, 600);
+  createCanvas(windowWidth, windowHeight);
   background(255);
   noFill();
 
@@ -38,5 +38,10 @@ beginShape();
 endShape();
 
   }
+  else if(key ==='c'){
+    clear();
+  }
+
+
   return false;
 }
