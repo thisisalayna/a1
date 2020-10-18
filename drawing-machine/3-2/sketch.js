@@ -1,10 +1,10 @@
 let array = [];
 
 function setup() {
-  createCanvas(1000, 600);
+  createCanvas(700, 600);
   background(255);
   noFill();
-  
+
 
 }
 
