@@ -2,7 +2,7 @@ let array = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(255);
+  background(200);
   noFill();
 
 
@@ -10,15 +10,20 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
-    stroke(0, 0, 0, mouseX * (1 / 6));
-    strokeWeight(10);
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY)
-    array.push([mouseX, mouseY]);
+  // if (mouseIsPressed) {
+  //   stroke(0, 0, 0, mouseX * (1 / 6));
+  //   strokeWeight(10);
+  //   line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  //   line(mouseX, mouseY, pmouseX, pmouseY)
+  //   array.push([mouseX, mouseY]);
+  //
+  // }
 
-  }
-
+  stroke(map(mouseX, 0, 600, 0, 255, true));
+  strokeWeight(5);
+  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  line(mouseX, mouseY, pmouseX, pmouseY)
+  array.push([mouseX, mouseY]);
 }
 
 function keyTyped() {
@@ -28,16 +33,7 @@ function keyTyped() {
     saveCanvas('fileName', 'png');
 
   }
-  else if (key === 'd') {
 
-beginShape();
-    for (let i = 0; i < array.length; i++) {
-      console.log(i);
-      curveVertex(array[i][0], array[i][1] )
-    }
-endShape();
-
-  }
   else if(key ==='c'){
     clear();
   }
