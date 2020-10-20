@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 157, 220);
+  //background(0, 157, 220);
   strokeWeight(strokeWidth);
   noiseOffset += 0.05;
   strokeWidth = noise(noiseOffset) * 50;
@@ -37,7 +37,8 @@ function keyTyped() {
     saveCanvas('fileName', 'png');
 
   } else if (key === 'c') {
-    clear();
+  //  clear();
+    background(0, 157, 220);
   }
 
 
