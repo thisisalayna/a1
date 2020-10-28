@@ -48,15 +48,15 @@ function keyTyped() {
 
 function drawGrid() {
   numCells = 20;
-  fillColor = 255;
+  fillColor = "#DB0501";
   strokeWeight(0);
 
   for (let i = 0; i <= width; i += width / numCells) {
     for (let j = 0; j <= height; j += height / numCells) {
-      if (fillColor === 255) {
-        fillColor = 200;
+      if (fillColor === "#DB0501") {
+        fillColor = "#9C0300";
       } else {
-        fillColor = 255;
+        fillColor = "#DB0501";
       }
       fill(fillColor);
       rect(i, j, width / numCells, height / numCells);
