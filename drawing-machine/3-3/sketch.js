@@ -5,7 +5,9 @@ let strokeWidth = 5;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noFill();
-  background(0, 157, 220);
+  //background(0, 157, 220);
+
+  drawGrid();
 }
 
 function draw() {
@@ -15,18 +17,18 @@ function draw() {
   strokeWidth = noise(noiseOffset) * 50;
 
 
-  if (mouseIsPressed) {
-    stroke(map(mouseX, 0, 600, 0, 255, true));
-    strokeWeight(strokeWidth);
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY)
-    array.push([mouseX, mouseY]);
+  //  if (mouseIsPressed) {
+  //     stroke(map(mouseX, 0, 600, 0, 255, true));
+  //     strokeWeight(strokeWidth);
+  //     line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  //     line(mouseX, mouseY, pmouseX, pmouseY)
+  //     array.push([mouseX, mouseY]);
 
-  }
 
-  stroke(map(mouseX, 0, 600, 0, 255, true));
-  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-  line(mouseX, mouseY, pmouseX, pmouseY)
+
+  // stroke(map(mouseX, 0, 600, 0, 255, true));
+  // line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  // line(mouseX, mouseY, pmouseX, pmouseY)
 
 }
 
@@ -34,13 +36,32 @@ function keyTyped() {
 
   if (key == 's' || key == 'S') {
 
-    saveCanvas('fileName', 'png');
-
+    saveCanvas('drawing', 'png');
   } else if (key === 'c') {
-  //  clear();
+    //  clear();
     background(0, 157, 220);
   }
 
 
   return false;
+}
+
+function drawGrid() {
+  numCells = 20;
+  fillColor = 255;
+  strokeWeight(0);
+
+  for (let i = 0; i <= width; i += width / numCells) {
+    for (let j = 0; j <= height; j += height / numCells) {
+      if (fillColor === 255) {
+        fillColor = 200;
+      } else {
+        fillColor = 255;
+      }
+      fill(fillColor);
+      rect(i, j, width / numCells, height / numCells);
+
+    }
+  }
+  strokeWeight(5);
 }
