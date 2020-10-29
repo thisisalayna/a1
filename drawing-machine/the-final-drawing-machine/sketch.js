@@ -1,59 +1,62 @@
 let array = [];
 let noiseOffset = 0.0;
 let strokeWidth = 5;
+//let visible = true;
+let choice = '1';
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  noFill();
   background(0, 157, 220);
 
 }
 
 function draw() {
-  //background(0, 157, 220);
-  strokeWeight(strokeWidth);
-  noiseOffset += 0.05;
-  strokeWidth = noise(noiseOffset) * 50;
-
+  if (keyIsPressed) {
+    choice = key;
+  }
   if (mouseIsPressed) {
-    stroke(map(mouseX, 0, 600, 0, 255, true));
-    strokeWeight(strokeWidth);
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY)
-    array.push([mouseX, mouseY]);
-
-
-
-    stroke(map(mouseX, 0, 600, 0, 255, true));
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY)
+    keyTyped(choice);
+  }
+  array.push([mouseX, mouseY]);
+  stroke(0, 0, 0, mouseX);
+  strokeWeight(10);
 
   }
-}
 
-function keyTyped() {
 
-  if (key == 's' || key == 'S') {
+function keyTyped(keyPress) {
+
+  if (keyPress == 's' || keyPress == 'S') {
 
     saveCanvas('drawing', 'png');
   } else if (key === 'c') {
     //  clear();
     background(0, 157, 220);
-  } else if (key === '1') {
+  } else if (keyPress === 'h' || keyPress === 'H') {
+    toggleView();
+  } else if (keyPress === '1') {
+    line(mouseX, mouseY, pmouseX, pmouseY);
 
+  } else if (keyPress === '2') {
+    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+    line(mouseX, mouseY, pmouseX, pmouseY);
 
-  } else if (key === '2') {
+  } else if (keyPress === '3') {
 
+  } else if (keyPress === '4') {
 
-  } else if (key === '3') {
-
-
-  } else if (key === '4'){
-
-
-  } else if (key === '5'){
-
+  } else if (keyPress === '5') {
 
   }
   return false;
 }
+
+
+// function toggleView() {
+//   if (visible) {
+//     div.hide();
+//   } else {
+//     div.show();
+//     visible = true;
+//   }
+// }
