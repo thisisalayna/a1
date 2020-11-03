@@ -6,7 +6,7 @@ html {
 body {
   margin: 100px auto 0 auto;
   width: 80%;
-  text-align: center;
+  text-align: justify;
   font-size: 20px;
   padding: 25px;
   color: white;
@@ -26,6 +26,12 @@ canvas {
 }
 
 #myDIV{
+
+
+}
+
+#thatBUTTON{
+
 
 
 }
