@@ -4,12 +4,13 @@ html {
 }
 
 body {
-  margin: 100px auto 0 auto;
+  margin: 10px auto 0 auto;
   width: 80%;
   text-align: justify;
   font-size: 20px;
   padding: 25px;
   color: white;
+  font-family: monospace;
 }
 
 canvas {
@@ -21,7 +22,6 @@ canvas {
 }
 
 .title {
-  padding: 5px;
   font-size: 30px;
 }
 
@@ -30,8 +30,13 @@ canvas {
 
 }
 
-#thatBUTTON{
+.rest{
+  padding: 10px;
+  font-size: 12px;
+}
 
+#thatBUTTON{
+position: 20, 20;
 
 
 }
