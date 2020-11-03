@@ -67,12 +67,14 @@ function keyTyped(keyPress) {
     line(width - mouseX + 100, height - mouseY + 100, width - pmouseX + 100, height - pmouseY + 100);
 
   } else if (keyPress === '4') {
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY);
-    line(mouseX + 100, mouseY + 100, pmouseX + 100, pmouseY + 100);
-    line(width - mouseX + 100, height - mouseY + 100, width - pmouseX + 100, height - pmouseY + 100);
-    line(mouseX + 300, mouseY + 300, pmouseX + 300, pmouseY + 300);
-    line(width - mouseX + 300, height - mouseY + 300, width - pmouseX + 300, height - pmouseY + 300);
+    strokeWeight(0);
+    fill(0);
+    circle(mouseX, mouseY, pmouseX + 10, pmouseY + 10);
+    circle(width - mouseX, height - mouseY, width - pmouseX + 10, height - pmouseY + 10);
+    fill(colorPicker.color());
+    circle(mouseX, mouseY, pmouseX, pmouseY);
+    circle(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+
 
   } else if (keyPress === '5') {
     strokeWeight(500);
@@ -80,15 +82,6 @@ function keyTyped(keyPress) {
   }
   return false;
 }
-
-// function clouds(){
-//   noStroke();
-// ellipse(100, 100, 50);
-// ellipse(140, 110, 70, 50);
-// ellipse(190, 110, 50);
-// ellipse(150, 90, 80, 50);
-//
-// }
 
 function myFunction() {
   var x = document.getElementById("myDIV");
