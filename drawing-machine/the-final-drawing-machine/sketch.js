@@ -1,8 +1,7 @@
 let array = [];
 let noiseOffset = 0.0;
 let strokeWidth = 5;
-//let visible = true;
-let choice = '1';
+let choice = '1'
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,15 +10,18 @@ function setup() {
 }
 
 function draw() {
+
+cursor('grab');
   if (keyIsPressed) {
     choice = key;
+    keyTyped(choice);
   }
   if (mouseIsPressed) {
     keyTyped(choice);
+    cursor('grabbing');
+
   }
   array.push([mouseX, mouseY]);
-  stroke(0, 0, 0, mouseX);
-  strokeWeight(10);
 
   }
 
@@ -33,8 +35,10 @@ function keyTyped(keyPress) {
     //  clear();
     background(0, 157, 220);
   } else if (keyPress === 'h' || keyPress === 'H') {
-    toggleView();
+    myFunction();
   } else if (keyPress === '1') {
+    strokeWeight(10);
+    stroke(0);
     line(mouseX, mouseY, pmouseX, pmouseY);
 
   } else if (keyPress === '2') {
@@ -42,6 +46,7 @@ function keyTyped(keyPress) {
     line(mouseX, mouseY, pmouseX, pmouseY);
 
   } else if (keyPress === '3') {
+    textColor = 'black';
 
   } else if (keyPress === '4') {
 
@@ -51,12 +56,11 @@ function keyTyped(keyPress) {
   return false;
 }
 
-
-// function toggleView() {
-//   if (visible) {
-//     div.hide();
-//   } else {
-//     div.show();
-//     visible = true;
-//   }
-// }
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
