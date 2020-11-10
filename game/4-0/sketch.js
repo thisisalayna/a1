@@ -74,6 +74,7 @@ function level1() {
   stroke(0);
   strokeWeight(0);
   text('click for points', w / 2, h / 3);
+  text('points:' + points, w/2, h/4);
 }
 
 function level1MouseClicked() {
@@ -92,7 +93,8 @@ function youWin() {
   strokeWeight(3);
   fill(someRainbow);
   text('YOU win!', w / 2, h / 3);
-  stroke(0);
+  strokeWeight(0);
+  fill(255, 0, 0);
   textSize(20);
   text('click to restart', w / 2, h * 3 / 4);
 }
