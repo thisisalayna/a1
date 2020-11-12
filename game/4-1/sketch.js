@@ -128,18 +128,21 @@ for (let coin of coins){
 }
 
 //coins array backwards
-for (let i = coins.length - 1; i >= 0; i--){
+for (let i = coins.length - 1; i >= 0; i--) {
 if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2){
   points++;
   console.log(points);
   coins.splice(i, 1);
-    }
+} else if (coins[i].y > h){
+  coins.splice(i, 1);
+  //console.log('coin is out of town');
+}
   }
 }
 
 function level1MouseClicked() {
   //points++;
-  //console.log('points = ' + points);
+console.log('canvas is CLICKED! (on level 1)');
 
   if (points >= 15) {
     state = 'you win!';
