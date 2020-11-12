@@ -11,7 +11,7 @@ let coins = [];
 let playerImg;
 let coinImg;
 
-function preload(){
+function preload() {
   //playerImg = loadImage('assets/playerimage.jpg');
   //coinImg = loadImage('assets/coinimage.jpg');
 }
@@ -19,7 +19,7 @@ function preload(){
 function setup() {
   cnv = createCanvas(w, h);
 
-//  textFont('avenir next');
+  //  textFont('avenir next');
 
   player = new Player();
   //coins[0] = new Coin();
@@ -61,16 +61,16 @@ function draw() {
 
 }
 
-function keyPressed(){
-  if (keyCode == UP_ARROW || key == 'w'){
+function keyPressed() {
+  if (keyCode == UP_ARROW || key == 'w') {
     player.direction = 'up'
-  } else if (keyCode == LEFT_ARROW || key == 'a'){
+  } else if (keyCode == LEFT_ARROW || key == 'a') {
     player.direction = 'left'
-  } else if (keyCode == DOWN_ARROW || key == 's'){
+  } else if (keyCode == DOWN_ARROW || key == 's') {
     player.direction = 'down'
-  } else if (keyCode == RIGHT_ARROW || key == 'd'){
+  } else if (keyCode == RIGHT_ARROW || key == 'd') {
     player.direction = 'right'
-  } else if (key = ' '){
+  } else if (key = ' ') {
     player.direction = 'still'
   }
 
@@ -96,9 +96,9 @@ function titleMouseClicked() {
 function level1() {
   background(50, 50, 200);
 
-if (random(1) <= 0.01){
-  coins.push (new Coin());
-}
+  if (random(1) <= 0.01) {
+    coins.push(new Coin());
+  }
 
   textSize(12);
   fill(255);
@@ -106,43 +106,43 @@ if (random(1) <= 0.01){
   strokeWeight(0);
   text(`points: ${points}`, w / 2, h / 3);
 
-player.display();
-player.move();
+  player.display();
+  player.move();
 
-// coins array, display/move
-// for (let i = 0; i < coins.length; i++){
-//   coins[i].display();
-//   coins[i].move();
-// }
+  // coins array, display/move
+  // for (let i = 0; i < coins.length; i++){
+  //   coins[i].display();
+  //   coins[i].move();
+  // }
 
-//foreach
-// coins.forEach(function(coin){
-//   coin.display();
-//   coin.move();
-// })
+  //foreach
+  // coins.forEach(function(coin){
+  //   coin.display();
+  //   coin.move();
+  // })
 
-//for of loop
-for (let coin of coins){
-  coin.display();
- coin.move();
-}
+  //for of loop
+  for (let coin of coins) {
+    coin.display();
+    coin.move();
+  }
 
-//coins array backwards
-for (let i = coins.length - 1; i >= 0; i--) {
-if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2){
-  points++;
-  console.log(points);
-  coins.splice(i, 1);
-} else if (coins[i].y > h){
-  coins.splice(i, 1);
-  //console.log('coin is out of town');
-}
+  //coins array backwards
+  for (let i = coins.length - 1; i >= 0; i--) {
+    if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
+      points++;
+      console.log(points);
+      coins.splice(i, 1);
+    } else if (coins[i].y > h) {
+      coins.splice(i, 1);
+      //console.log('coin is out of town');
+    }
   }
 }
 
 function level1MouseClicked() {
   //points++;
-console.log('canvas is CLICKED! (on level 1)');
+  console.log('canvas is CLICKED! (on level 1)');
 
   if (points >= 15) {
     state = 'you win!';
