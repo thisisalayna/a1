@@ -2,7 +2,7 @@ class Coin {
   constructor() {
     this.r = 50;
     this.x = random(w);
-    this.y = h - this.r;
+    this.y = 0 - this.r;
   }
 
   display() {
