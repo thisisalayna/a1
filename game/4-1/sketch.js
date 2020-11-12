@@ -7,16 +7,23 @@ let points = 0;
 let w = 600;
 let h = 600;
 let player;
-let coin;
+let coins = [];
+let playerImg;
+let coinImg;
+
+function preload(){
+  //playerImg = loadImage('assets/playerimage.jpg');
+  //coinImg = loadImage('assets/coinimage.jpg');
+}
 
 function setup() {
   cnv = createCanvas(w, h);
 
-  textFont('avenir next');
+//  textFont('avenir next');
 
   player = new Player();
-  coin = new Point();
-
+  //coins[0] = new Coin();
+  coins.push(new Coin());
 }
 
 
@@ -54,6 +61,21 @@ function draw() {
 
 }
 
+function keyPressed(){
+  if (keyCode == UP_ARROW || key == 'w'){
+    player.direction = 'up'
+  } else if (keyCode == LEFT_ARROW || key == 'a'){
+    player.direction = 'left'
+  } else if (keyCode == DOWN_ARROW || key == 's'){
+    player.direction = 'down'
+  } else if (keyCode == RIGHT_ARROW || key == 'd'){
+    player.direction = 'right'
+  } else if (key = ' '){
+    player.direction = 'still'
+  }
+
+}
+
 function title() {
   textAlign(CENTER);
   textSize(100);
@@ -73,21 +95,51 @@ function titleMouseClicked() {
 
 function level1() {
   background(50, 50, 200);
+
+if (random(1) <= 0.01){
+  coins.push (new Coin());
+}
+
   textSize(12);
   fill(255);
   stroke(0);
   strokeWeight(0);
-  text('click for points', w / 2, h / 3);
-  text('points:' + points, w/2, h/4);
+  text(`points: ${points}`, w / 2, h / 3);
 
 player.display();
-coin.display();
-coin.move();
+player.move();
+
+// coins array, display/move
+// for (let i = 0; i < coins.length; i++){
+//   coins[i].display();
+//   coins[i].move();
+// }
+
+//foreach
+// coins.forEach(function(coin){
+//   coin.display();
+//   coin.move();
+// })
+
+//for of loop
+for (let coin of coins){
+  coin.display();
+ coin.move();
+}
+
+//coins array backwards
+for (let i = coins.length - 1; i >= 0; i--){
+if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2){
+  points++;
+  console.log(points);
+  coins.splice(i, 1);
+    }
+  }
 }
 
 function level1MouseClicked() {
-  points++;
-  console.log('points = ' + points);
+  //points++;
+  //console.log('points = ' + points);
 
   if (points >= 15) {
     state = 'you win!';
@@ -100,7 +152,7 @@ function youWin() {
   textSize(100);
   stroke(255);
   strokeWeight(3);
-  fill(someRainbow);
+  //fill(someRainbow);
   text('YOU win!', w / 2, h / 3);
   strokeWeight(0);
   fill(255, 0, 0);
