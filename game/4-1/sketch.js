@@ -6,19 +6,23 @@ let someRainbow = 0;
 let points = 0;
 let w = 600;
 let h = 600;
+let player;
+let coin;
 
 function setup() {
   cnv = createCanvas(w, h);
 
   textFont('avenir next');
 
+  player = new Player();
+  coin = new Point();
+
 }
 
 
 function draw() {
   background(200);
-
-  someRainbow = (someRainbow + .9) % 360;
+  //someRainbow = (someRainbow + .9) % 360;
 
   switch (state) {
     case 'title':
@@ -75,6 +79,10 @@ function level1() {
   strokeWeight(0);
   text('click for points', w / 2, h / 3);
   text('points:' + points, w/2, h/4);
+
+player.display();
+coin.display();
+coin.move();
 }
 
 function level1MouseClicked() {
@@ -87,7 +95,8 @@ function level1MouseClicked() {
 }
 
 function youWin() {
-  background(someRainbow);
+  //background(someRainbow);
+  background(0);
   textSize(100);
   stroke(255);
   strokeWeight(3);
