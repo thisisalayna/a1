@@ -70,9 +70,13 @@ function keyPressed() {
     player.direction = 'down'
   } else if (keyCode == RIGHT_ARROW || key == 'd') {
     player.direction = 'right'
-  } else if (key = ' ') {
-    player.direction = 'still'
   }
+}
+
+  function keyReleased() {
+    if (keyCode == UP_ARROW || key == 'w' || keyCode == LEFT_ARROW || key == 'a' || keyCode == DOWN_ARROW || key == 's' || keyCode == RIGHT_ARROW || key == 'd') {
+      player.direction = 'still'
+    }
 
 }
 
@@ -127,9 +131,9 @@ function level1() {
     coin.move();
   }
 
-  //coins array backwards
+  //coins array backwards. player.r/2 because it was not truly centered
   for (let i = coins.length - 1; i >= 0; i--) {
-    if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
+    if (dist(player.x + player.r/2, player.y + player.r/2, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
       points++;
       console.log(points);
       coins.splice(i, 1);

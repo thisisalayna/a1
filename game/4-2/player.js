@@ -42,8 +42,6 @@ class Player {
           this.x -= this.speed;
         }
         break;
-
-
     }
   }
 
