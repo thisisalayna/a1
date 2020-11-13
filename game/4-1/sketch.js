@@ -70,7 +70,7 @@ function keyPressed() {
     player.direction = 'down'
   } else if (keyCode == RIGHT_ARROW || key == 'd') {
     player.direction = 'right'
-  } else if (keyReleased()) {
+  } else if (key = ' ') {
     player.direction = 'still'
   }
 
