@@ -98,7 +98,7 @@ function titleMouseClicked() {
 }
 
 function level1() {
-  background(50, 50, 200);
+  background(165, 207, 201);
 
   if (random(1) <= 0.01) {
     coins.push(new Coin());
