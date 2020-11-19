@@ -4,7 +4,7 @@
 // /v1/gifts/search
 
 
-let api = "http://api.giphy.com/v1/gifs/search?";
+let api = "https://api.giphy.com/v1/gifs/search?";
 let apiKey = "&api_key=POULRRnK7egZyaCOf0NNWAIGgNbpJAhU";
 let query = "&q=dogs";
 
