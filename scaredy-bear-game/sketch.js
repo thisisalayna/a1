@@ -28,8 +28,7 @@ function setup() {
 
 
 function draw() {
-  background(200);
-  //someRainbow = (someRainbow + .9) % 360;
+  background(165, 207, 201);
 
   switch (state) {
     case 'title':
@@ -82,13 +81,12 @@ function keyPressed() {
 
 function title() {
   textAlign(CENTER);
-  textSize(100);
-  stroke(255);
-  strokeWeight(3);
-  fill('purple');
-  text('This GAME!', w / 2, h / 5);
+  textSize(80);
+  noStroke();
+  fill(102, 7, 100);
+  text('Scaredy Bear', w / 2, h / 3);
 
-  textSize(25);
+  textSize(20);
   text('click anywhere to start', w / 2, h / 2);
 }
 
