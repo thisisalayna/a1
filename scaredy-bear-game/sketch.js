@@ -8,8 +8,8 @@ let w = 600;
 let h = 600;
 let player;
 let coins = [];
+let enemies = [];
 let playerImg;
-let coinImg;
 
 function preload() {
   playerImg = loadImage('assets/playerimage.png');
@@ -19,11 +19,13 @@ function preload() {
 function setup() {
   cnv = createCanvas(w, h);
 
-  //  textFont('avenir next');
+  //  textFont('');
 
   player = new Player();
-  //coins[0] = new Coin();
+  coins[0] = new Coin();
+//enemy[0] = new Enemy();
   coins.push(new Coin());
+  //enemy.push(new Enemy());
 }
 
 
@@ -72,12 +74,14 @@ function keyPressed() {
   }
 }
 
-  function keyReleased() {
-    if (keyCode == UP_ARROW || key == 'w' || keyCode == LEFT_ARROW || key == 'a' || keyCode == DOWN_ARROW || key == 's' || keyCode == RIGHT_ARROW || key == 'd') {
-      player.direction = 'still'
-    }
+function keyReleased() {
+  if (keyCode == UP_ARROW || key == 'w' || keyCode == LEFT_ARROW || key == 'a' || keyCode == DOWN_ARROW || key == 's' || keyCode == RIGHT_ARROW || key == 'd') {
+    player.direction = 'still'
+  }
 
 }
+
+
 
 function title() {
   textAlign(CENTER);
@@ -97,6 +101,8 @@ function titleMouseClicked() {
 
 function level1() {
   background(165, 207, 201);
+
+
 
   if (random(1) <= 0.01) {
     coins.push(new Coin());
@@ -131,7 +137,7 @@ function level1() {
 
   //coins array backwards. player.r/2 because it was not truly centered
   for (let i = coins.length - 1; i >= 0; i--) {
-    if (dist(player.x + player.r/2, player.y + player.r/2, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
+    if (dist(player.x + player.r / 2, player.y + player.r / 2, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
       points++;
       console.log(points);
       coins.splice(i, 1);
@@ -140,15 +146,17 @@ function level1() {
       //console.log('coin is out of town');
     }
   }
+
+  if (points >= 15) {
+    state = 'you win!';
+  }
 }
 
 function level1MouseClicked() {
   //points++;
   console.log('canvas is CLICKED! (on level 1)');
 
-  if (points >= 15) {
-    state = 'you win!';
-  }
+
 }
 
 function youWin() {
