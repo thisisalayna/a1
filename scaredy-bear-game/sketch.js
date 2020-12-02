@@ -1,6 +1,6 @@
 'use strict'
 
-let state = 'title';
+let state = 'landing';
 let cnv;
 let someRainbow = 0;
 let points = 0;
@@ -8,12 +8,11 @@ let w = 600;
 let h = 600;
 let player;
 let coins = [];
-let enemies = [];
+let enemy = [];
 let playerImg;
 
 function preload() {
   playerImg = loadImage('assets/playerimage.png');
-  //coinImg = loadImage('assets/coinimage.jpg');
 }
 
 function setup() {
@@ -23,9 +22,7 @@ function setup() {
 
   player = new Player();
   coins[0] = new Coin();
-//enemy[0] = new Enemy();
   coins.push(new Coin());
-  //enemy.push(new Enemy());
 }
 
 
@@ -33,6 +30,10 @@ function draw() {
   background(165, 207, 201);
 
   switch (state) {
+    case 'landing':
+      landing();
+      cnv.mouseClicked(landingMouseClicked);
+      break;
     case 'title':
       title();
       cnv.mouseClicked(titleMouseClicked);
@@ -41,8 +42,8 @@ function draw() {
       level1();
       cnv.mouseClicked(level1MouseClicked);
       break;
-    case 'you win!':
-      youWin();
+    case 'you did it!!':
+      youDidIt();
       cnv.mouseClicked(youWinMouseClicked);
       break;
     default:
@@ -81,7 +82,14 @@ function keyReleased() {
 
 }
 
+function landing() {
 
+}
+
+functiong landingMouseClicked(){
+  console.log('canvas is CLICKED! (on the landing page)');
+  state = 'title'
+}
 
 function title() {
   textAlign(CENTER);
@@ -101,8 +109,6 @@ function titleMouseClicked() {
 
 function level1() {
   background(165, 207, 201);
-
-
 
   if (random(1) <= 0.01) {
     coins.push(new Coin());
@@ -143,12 +149,11 @@ function level1() {
       coins.splice(i, 1);
     } else if (coins[i].y > h) {
       coins.splice(i, 1);
-      //console.log('coin is out of town');
     }
   }
 
   if (points >= 15) {
-    state = 'you win!';
+    state = 'you did it!!';
   }
 }
 
@@ -159,21 +164,21 @@ function level1MouseClicked() {
 
 }
 
-function youWin() {
+function youDidIt() {
   //background(someRainbow);
   background(0);
   textSize(100);
   stroke(255);
   strokeWeight(3);
   //fill(someRainbow);
-  text('YOU win!', w / 2, h / 3);
+  text('YOU did it!', w / 2, h / 3);
   strokeWeight(0);
   fill(255, 0, 0);
   textSize(20);
   text('click to restart', w / 2, h * 3 / 4);
 }
 
-function youWinMouseClicked() {
+function youDidItMouseClicked() {
   state = 'level 1';
   points = 0;
 }
