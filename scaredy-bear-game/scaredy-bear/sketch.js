@@ -94,7 +94,7 @@ function drawMouth() {
 
 function drawTongue() {
   x = 0;
-  x = x + random(-2, 2);
+  x = x + random(-3, 3);
   fill(211, 55, 78);
   ellipse(200 + x, 270, 30, 15);
 
