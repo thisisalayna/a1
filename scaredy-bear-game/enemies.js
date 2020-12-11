@@ -14,6 +14,6 @@ class Enemy {
   }
 
   move() {
-    this.y++
+    this.y+= 2;
   }
 }

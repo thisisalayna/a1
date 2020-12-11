@@ -161,7 +161,7 @@ function level1() {
   if (random(1) <= 0.09) {
     coins.push(new Coin());
   }
-  if ((random(1) <= 0.07)) {
+  if ((random(1) <= 0.09)) {
     enemies.push(new Enemy());
   }
 
@@ -211,10 +211,10 @@ function level1() {
     }
   }
 
-  if (points >= 10) {
+  if (points >= 20) {
     state = 'you did it!!';
   }
-  else if (points <=-2) {
+  else if (points <=-20) {
     state = 'game over';
   }
 }

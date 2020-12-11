@@ -14,6 +14,6 @@ class Coin {
   }
 
   move() {
-    this.y++
+    this.y+= 2;
   }
 }
