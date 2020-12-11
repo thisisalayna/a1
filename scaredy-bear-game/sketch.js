@@ -278,10 +278,9 @@ function drawTongue() {
   x = x + random(-3, 3);
   fill(211, 55, 78);
   ellipse(200 + x, 270, 30, 15);
-
 }
 
 function drawShadow() {
   fill(155, 193, 188);
-  rect(200, 0, 200, 400);
+  rect(300, 0, 300, 600);
 }
