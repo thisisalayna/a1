@@ -64,7 +64,7 @@ function draw() {
       break;
     case 'you did it!!':
       youDidIt();
-      cnv.mouseClicked(youWinMouseClicked);
+      cnv.mouseClicked(youDidItMouseClicked);
       break;
     default:
       break;
