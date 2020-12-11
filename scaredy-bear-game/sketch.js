@@ -13,6 +13,7 @@ let coins = [];
 let enemies = [];
 let playerImg;
 let fade;
+let fadeAmount = 1;
 
 
 function preload() {
@@ -49,7 +50,7 @@ function setup() {
 
 function draw() {
   background(165, 207, 201);
-
+textAlign(CENTER);
   switch (state) {
     case 'landing':
       landing();
@@ -109,6 +110,17 @@ function landing() {
     drawTongue();
     reSize = (5 - (20 / 100));
 
+    fill(255, fade);
+    stroke(0, 0, 0);
+    textSize(20);
+      text("Be careful!", w / 2 , 500);
+    textSize(15);
+    text("If you click on Scaredy Bear, they'll run.", w / 2, 525);
+      if (fade<0) fadeAmount=1;
+
+      if (fade>255) fadeAmount=-10;
+
+      fade += fadeAmount;
 }
 
  function landingMouseClicked(){
@@ -117,14 +129,27 @@ function landing() {
  }
 
 function title() {
-  textAlign(CENTER);
+  fill(255);
+  stroke(0);
+  strokeWeight(1);
+  rectMode(CENTER);
+  rect(w / 2, 315, 550, 250);
+
   textSize(80);
   noStroke();
   fill(102, 7, 100);
-  text('Scaredy Bear', w / 2, h / 3);
-
+  text('Oh no!', w / 2, h / 5);
   textSize(20);
-  text('click anywhere to start', w / 2, h / 2);
+  text('They ran away.', w / 2, h / 4);
+  text('Scaredy Bear is very scared because', w / 2, h / 2.7);
+  text('they do not know which dots to trust!', w / 2, h / 2.4 );
+  text('To help Scaredy Bear face their fear,', w / 2, h / 2);
+  text('you have to collect points, but watch out!', w / 2, 330);
+  text('some dots will take your points away!!', w / 2, 360);
+  text('If Scaredy Bear loses too many points,', w / 2, 390);
+  text('he will never try to be brave again!', w / 2, 420);
+  textSize(25);
+  text('click to start', w / 2, h / 1.1);
 }
 
 function titleMouseClicked() {
