@@ -8,9 +8,9 @@ class Background {
   }
 
 
-drawBack(numberOfCircles){
+drawBack(numberOfCircles) {
 
-fill(63, 48, 71);
+//fill(63, 48, 71);
   for(let i = 0; i<40; i++)
   {
     for(let j = 0; j<40; j++)

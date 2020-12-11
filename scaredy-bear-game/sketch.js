@@ -65,7 +65,11 @@ function draw() {
       break;
     case 'you did it!!':
       youDidIt();
-      cnv.mouseClicked(youDidItMouseClicked);
+      cnv.mouseClicked(restartMouseClicked);
+      break;
+    case 'game over':
+      gameOver();
+      cnv.mouseClicked(restartMouseClicked);
       break;
     default:
       break;
@@ -131,8 +135,11 @@ function titleMouseClicked() {
 function level1() {
   if (random(1) <= 0.09) {
     coins.push(new Coin());
+  }
+  if ((random(1) <= 0.07)) {
     enemies.push(new Enemy());
   }
+
 
   textSize(12);
   fill(255);
@@ -179,32 +186,51 @@ function level1() {
     }
   }
 
-  if (points >= 100) {
+  if (points >= 10) {
     state = 'you did it!!';
+  }
+  else if (points <=-2) {
+    state = 'game over';
   }
 }
 
 function level1MouseClicked() {
   console.log('canvas is CLICKED! (on level 1)');
-
-
 }
 
 function youDidIt() {
+  textSize(15);
+  fill("#660764");
+  text('You helped Scaredy Bear face their fear!', w / 2, h * 3 / 7);
+  textSize(75);
+  text('You did it!!', w / 2, h / 3);
+  textSize(20);
+  if(int(frameCount/50)%2 == 1) {
+  fill("#660764");
+} else {fill("#A5CFC9");}
+text('play again', w / 2, h * 3 / 4);
+  strokeWeight(0);
+  for (let coin of coins) {
+    coin.display();
+    coin.move();
+  }
+}
+
+function restartMouseClicked() {
+  state = 'level 1';
+  points = 0;
+}
+
+function gameOver(){
   textSize(20);
   fill("#660764");
-  text('click to restart', w / 2, h * 3 / 4);
+  text('play again', w / 2, h * 3 / 4);
   textSize(75);
   if(int(frameCount/50)%2 == 1) {
   fill("#A5CFC9");
-} else {fill("#660764");}
-  text('You did it!', w / 2, h / 3);
+  } else {fill("#660764");}
+  text('Game Over', w / 2, h / 3);
   strokeWeight(0);
-}
-
-function youDidItMouseClicked() {
-  state = 'level 1';
-  points = 0;
 }
 
 
