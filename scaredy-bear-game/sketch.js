@@ -139,6 +139,8 @@ function title() {
   noStroke();
   fill(102, 7, 100);
   text('Oh no!', w / 2, h / 5);
+  textSize(25);
+  text('click to start', w / 2, h / 1.1);
   textSize(20);
   text('They ran away.', w / 2, h / 4);
   text('Scaredy Bear is very scared because', w / 2, h / 2.7);
@@ -148,8 +150,6 @@ function title() {
   text('some dots will take your points away!!', w / 2, 360);
   text('If Scaredy Bear loses too many points,', w / 2, 390);
   text('he will never try to be brave again!', w / 2, 420);
-  textSize(25);
-  text('click to start', w / 2, h / 1.1);
 }
 
 function titleMouseClicked() {
