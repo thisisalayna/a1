@@ -1,6 +1,6 @@
 class Enemy {
   constructor() {
-    this.r = 50;
+    this.r = 10;
     this.x = random(w);
     this.y = 0 - this.r;
     this.color = color(random(255), random(255), random(255));

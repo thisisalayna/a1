@@ -10,7 +10,7 @@ let w = 600;
 let h = 600;
 let player;
 let coins = [];
-let enemy = [];
+let enemies = [];
 let playerImg;
 let fade;
 
@@ -41,9 +41,9 @@ function setup() {
 
   player = new Player();
   coins[0] = new Coin();
+  enemies[0] = new Enemy();
   coins.push(new Coin());
-  enemy[0] = new Enemy();
-  enemy.push(new Enemy());
+  enemies.push(new Enemy());
 }
 
 
@@ -131,7 +131,7 @@ function titleMouseClicked() {
 function level1() {
   if (random(1) <= 0.09) {
     coins.push(new Coin());
-    enemy.push(new Enemy());
+    enemies.push(new Enemy());
   }
 
   textSize(12);
@@ -143,14 +143,21 @@ function level1() {
   player.display();
   player.move();
 
-  //for of loop
+  //for of loop for coins
   for (let coin of coins) {
     coin.display();
     coin.move();
   }
 
+  //for of loop for enemies
+  for (let enemy of enemies) {
+    enemy.display();
+    enemy.move();
+  }
+
   //coins array backwards. player.r/2 because it was not truly centered
   for (let i = coins.length - 1; i >= 0; i--) {
+    //checking for collision with player
     if (dist(player.x + player.r / 2, player.y + player.r / 2, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
       points++;
       console.log(points);
@@ -160,7 +167,19 @@ function level1() {
     }
   }
 
-  if (points >= 1) {
+//enemy array
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    //checking for collision with player
+    if (dist(player.x + player.r / 2, player.y + player.r / 2, enemies[i].x, enemies[i].y) <= (player.r + enemies[i].r) / 2) {
+      points--;
+      console.log(points);
+      enemies.splice(i, 1);
+    } else if (enemies[i].y > h) {
+      enemies.splice(i, 1);
+    }
+  }
+
+  if (points >= 100) {
     state = 'you did it!!';
   }
 }
@@ -179,7 +198,7 @@ function youDidIt() {
   if(int(frameCount/50)%2 == 1) {
   fill("#A5CFC9");
 } else {fill("#660764");}
-  text('YOU did it!', w / 2, h / 3);
+  text('You did it!', w / 2, h / 3);
   strokeWeight(0);
 }
 
