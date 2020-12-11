@@ -5,7 +5,6 @@ let x;
 let reSize;
 let state = 'landing';
 let cnv;
-let someRainbow = 0;
 let points = 0;
 let w = 600;
 let h = 600;
@@ -14,7 +13,6 @@ let coins = [];
 let enemy = [];
 let playerImg;
 let fade;
-let colorArray = [];
 
 
 function preload() {
@@ -39,7 +37,7 @@ function setup() {
     random[i++] = y;
   }
     fade = 0;
-  //  textFont('');
+    textFont('ballinger-mono');
 
   player = new Player();
   coins[0] = new Coin();
@@ -72,16 +70,6 @@ function draw() {
 
   }
 
-  // if (state === 'title') {
-  //   title();
-  //   cnv.mouseClicked(titleMouseClicked);
-  // } else if (state === 'level 1') {
-  //   level1();
-  //   cnv.mouseClicked(level1MouseClicked);
-  // } else {
-  //
-  // }
-
 }
 
 function keyPressed() {
@@ -104,8 +92,6 @@ function keyReleased() {
 }
 
 function landing() {
-let fadeAmount = 1;
-
     drawShadow();
     bg.drawBack(100);
     drawNose();
@@ -142,7 +128,7 @@ function titleMouseClicked() {
 }
 
 function level1() {
-  if (random(1) <= 0.01) {
+  if (random(1) <= 0.09) {
     coins.push(new Coin());
   }
 
@@ -154,18 +140,6 @@ function level1() {
 
   player.display();
   player.move();
-
-  // coins array, display/move
-  // for (let i = 0; i < coins.length; i++){
-  //   coins[i].display();
-  //   coins[i].move();
-  // }
-
-  //foreach
-  // coins.forEach(function(coin){
-  //   coin.display();
-  //   coin.move();
-  // })
 
   //for of loop
   for (let coin of coins) {
@@ -184,30 +158,27 @@ function level1() {
     }
   }
 
-  if (points >= 15) {
+  if (points >= 1) {
     state = 'you did it!!';
   }
 }
 
 function level1MouseClicked() {
-  //points++;
   console.log('canvas is CLICKED! (on level 1)');
 
 
 }
 
 function youDidIt() {
-  //background(someRainbow);
-  background(0);
-  textSize(100);
-  stroke(255);
-  strokeWeight(3);
-  //fill(someRainbow);
+  textSize(20);
+  fill("#660764");
+  text('click to restart', w / 2, h * 3 / 4);
+  textSize(75);
+  if(int(frameCount/50)%2 == 1) {
+  fill("#A5CFC9");
+} else {fill("#660764");}
   text('YOU did it!', w / 2, h / 3);
   strokeWeight(0);
-  fill(255, 0, 0);
-  textSize(20);
-  text('click to restart', w / 2, h * 3 / 4);
 }
 
 function youDidItMouseClicked() {
