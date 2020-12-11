@@ -14,6 +14,7 @@ let coins = [];
 let enemy = [];
 let playerImg;
 let fade;
+let colorArray = [];
 
 
 function preload() {
@@ -141,8 +142,6 @@ function titleMouseClicked() {
 }
 
 function level1() {
-  background(165, 207, 201);
-
   if (random(1) <= 0.01) {
     coins.push(new Coin());
   }
