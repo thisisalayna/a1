@@ -42,6 +42,8 @@ function setup() {
   player = new Player();
   coins[0] = new Coin();
   coins.push(new Coin());
+  enemy[0] = new Enemy();
+  enemy.push(new Enemy());
 }
 
 
@@ -69,7 +71,6 @@ function draw() {
       break;
 
   }
-
 }
 
 function keyPressed() {
@@ -130,6 +131,7 @@ function titleMouseClicked() {
 function level1() {
   if (random(1) <= 0.09) {
     coins.push(new Coin());
+    enemy.push(new Enemy());
   }
 
   textSize(12);
