@@ -58,7 +58,7 @@ background(165, 207, 201);
     reSize = (mouseX + 100) / 100;
   } else {
 
-    reSize = (5 - (mouseX / 100));
+    reSize = (5 - (5 / 100));
 
   }
 
