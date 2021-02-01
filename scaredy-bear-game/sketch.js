@@ -211,10 +211,10 @@ function level1() {
     }
   }
 
-  if (points >= 20) {
+  if (points >= 10) {
     state = 'you did it!!';
   }
-  else if (points <=-20) {
+  else if (points <=-10) {
     state = 'game over';
   }
 }
